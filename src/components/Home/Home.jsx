@@ -33,30 +33,7 @@ export default function Home() {
     indexOfLastCountry
   );
 
-  // const uniques = [...new Set(test)]; // no tiene sentido porque en el modelo tengo seteada la propiedad como "unique"
-
-  // console.log("ACTIVITIES", activities);
-  // console.log("TEST......", test);
-  // console.log("UNIQUES...", uniques);
-
   // estos useEffect separados los puedo unificar?
-
-  /****************************************************** OTRO PAGINADO ******************************************************
-
-  const [pagActual, setPagActual] = useState(0);
-  const [cantXPag, setCantXPag] = useState(5)
-
-  
-    let array = allcountries.slice(pagActual, cantXPag);
-  
-  function proxPagina() {
-    setPagActual(pagActual + 5);
-    setCantXPag(cantXPag + 5)
-
-  }
-
-  /****************************************************** FIN OTRO PAGINADO ******************************************************/
-
   useEffect(() => {
     dispatch(getAllCountries());
   }, [dispatch]);
@@ -95,7 +72,7 @@ export default function Home() {
     setCurrentPage(1);
     setInOrder(`Ordenado ${e.target.value}`);
   }
-  
+
   function handleCountryActivity(e) {
     e.preventDefault();
     dispatch(countryByActivity(e.target.value));
@@ -118,13 +95,17 @@ export default function Home() {
           <option value="Oceania">Oceanía</option>
         </select>
 
-        <select className="filter" onChange={(e)=>handleCountryActivity(e)}>
+        <select className="filter" onChange={(e) => handleCountryActivity(e)}>
           <option value={"All"}>Todas las actividades</option>
-          {tourActivity.length > 0 ? tourActivity.map((a) => (
-            <option key={a.name} value={a.name}>
-              {a.name}
-            </option>
-          )) : <option>No hay actividades</option>}
+          {tourActivity.length > 0 ? (
+            tourActivity.map((a) => (
+              <option key={a.name} value={a.name}>
+                {a.name}
+              </option>
+            ))
+          ) : (
+            <option>No hay actividades</option>
+          )}
         </select>
         <button className="btn" onClick={(e) => handleCleanFilter(e)}>
           Limpiar filtro
@@ -147,8 +128,6 @@ export default function Home() {
           <option value={"less"}>Menor población</option>
           <option value={"more"}>Mayor población</option>
         </select>
-
-        
       </div>
 
       {/* <div>

@@ -20,10 +20,10 @@ export default function Form() {
 //   }
 
   return (
-    <form>
-      <label>Nombre de la actividad:</label>
-      <input type="text" placeholder="username" name="username" />
-      <label>Dificultad:</label>
+    <form className="form-create-activity">
+      <label className="form-label">Actividad:</label>
+      <input type="text" placeholder="ingrese una actividad" name="username" /><br />
+      <label className="form-label">Dificultad:</label>
       <select>
         <option disable hidden>
           Seleccione
@@ -33,10 +33,10 @@ export default function Form() {
         <option value="3">3</option>
         <option value="4">4</option>
         <option value="5">5</option>
-      </select>
-      <label>Duración:</label>
-      <input type="text" placeholder="Ingrese duración en horas" />
-      <label>Temporada:</label>
+      </select><br />
+      <label className="form-label">Duración:</label>
+      <input type="text" placeholder="Cantidad de horas" /><br />
+      <label className="form-label">Temporada:</label>
       <select>
         <option disable hidden>
           Seleccione
@@ -45,10 +45,10 @@ export default function Form() {
         <option value="autumn">Otoño</option>
         <option value="winter">Invierno</option>
         <option value="spring">Primavera</option>
-      </select>
-      <label>Países</label>
+      </select><br />
+      <label className="form-label">Países</label><br />
 
-      <input type="submit" />
+      <button className="form-submit">CREAR</button>
     </form>
   );
 }
