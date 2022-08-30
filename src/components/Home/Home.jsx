@@ -120,7 +120,7 @@ export default function Home() {
 
         <select className="filter" onChange={(e)=>handleCountryActivity(e)}>
           <option value={"All"}>Todas las actividades</option>
-          {tourActivity.map((a) => (
+          {tourActivity?.map((a) => (
             <option key={a.name} value={a.name}>
               {a.name}
             </option>
