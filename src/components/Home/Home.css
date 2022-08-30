@@ -1,0 +1,63 @@
+.filter-wrap {
+  display: flex;
+  justify-content: center;
+  /* background-color: #faf0e6; */
+  padding: 10px 0px;
+}
+
+.filter-wrap h4 {
+  padding: 0;
+  margin: 0;
+}
+
+.filter-wrap a {
+  text-decoration: none;
+
+  border-radius: 9px;
+  text-decoration: none;
+  color: black;
+  background-color: #cbbeb5;
+  font-weight: bold;
+  border: 2px solid;
+  padding: 5px 10px;
+}
+
+.filter-title {
+  margin: 0;
+  margin-right: 20px;
+  padding: 0;
+}
+
+.filter {
+  width: auto;
+  border: 3px solid#9dbfaf;
+  padding: 5px;
+  height: auto;
+  border-radius: 5px;
+  outline: none;
+  font-size: 18px;
+  color: #595456;
+  margin: 0px 10px;
+}
+
+.btn {
+  margin: 0px 10px;
+
+  width: 150px;
+  height: 36px;
+  border: 1px solid #7d8e87;
+  background: #7d8e87;
+  text-align: center;
+  color: #fff;
+  font-size: 20px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.card-container {
+  width: 90%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: auto;
+}
