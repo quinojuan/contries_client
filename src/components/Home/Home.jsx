@@ -118,14 +118,14 @@ export default function Home() {
           <option value="Oceania">Oceanía</option>
         </select>
 
-        {/* <select className="filter" onChange={(e)=>handleCountryActivity(e)}>
+        <select className="filter" onChange={(e)=>handleCountryActivity(e)}>
           <option value={"All"}>Todas las actividades</option>
-          {tourActivity ? tourActivity.map((a) => (
+          {tourActivity.length > 0 ? tourActivity.map((a) => (
             <option key={a.name} value={a.name}>
               {a.name}
             </option>
           )) : <option>No hay actividades</option>}
-        </select> */}
+        </select>
         <button className="btn" onClick={(e) => handleCleanFilter(e)}>
           Limpiar filtro
         </button>
