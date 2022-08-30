@@ -14,9 +14,17 @@ import "./TourActivity.css";
 function validate(input) {
   let error = {};
   // if (!input.name) error.name = "Se requiere el nombre de la actividad";
-  if (!input.name.match(/.*[^ ].*/)) error.name = "Ingrese una actividad (no sólo espacios)"
-  if (!input.name.match(/^[a-zA-Z\s]*$/)) error.name = "Ingrese sólo letras y espacios. No se permiten otros caracteres"
+  if (!input.name.match(/.*[^ ].*/))
+    error.name = "(no se permiten sólo espacios)";
+  if (!input.name.match(/^[a-zA-Z\s]*$/) || input.name.length >= 30)
+    error.name = "Sólo letras y espacios.(máx. 30 caractéres)";
   if (!input.duration) error.duration = "Se requiere la duración";
+  if (!(input.duration <= 24 && input.duration >= 1))
+    error.duration = "La duración tiene que ser de un máximo de 24hs";
+  if (!input.difficulty)
+    error.difficulty = "Se requiere un nivel de dificultad";
+  if (!input.season) error.season = "Se requiere una temporada";
+  console.log(error);
   return error;
 }
 
@@ -182,17 +190,17 @@ export default function TourActivity() {
           </div>
           <div>
             <label className="labeled">Duración:&nbsp;</label>
-            <input
+            {/* <input
               type="text"
               name="duration"
               placeholder="Tiempo en horas"
               onChange={(e) => handleChange(e)}
-            />
-            {error.duration && (
+            /> */}
+            {/* {error.duration && (
               <p style={{ display: "inline", color: "red" }}>
                 {error.duration}
               </p>
-            )}
+            )} */}
           </div>
           <div>
             <label>Temporada:&nbsp;</label>
@@ -220,29 +228,25 @@ export default function TourActivity() {
             </label>
           </div>
 
-          {input.country.map((el) => (
+          {/* {input.country.map((el) => (
             <div key={el}>
               <h4>{el}</h4>
               <button onClick={() => handleDelete(el)}>X</button>
             </div>
-          ))}
+          ))} */}
           <br />
           <div>
-            <button
+            {/* <button
               type="submit"
               disabled={
-                error.name || error.duration || !input.difficulty ? true : false
+                error.name || error.duration || !input.difficulty || error.duration || !input.season ? true : false
               }
             >
               Crear
-            </button>
+            </button> */}
           </div>
         </form>
-        <div className="back">
-          <br />
-          <Link to="/home">⬅ Regresar</Link>
-        </div>
-        <br />
+        
       </div>
 
       {/* FORMULARIOOOOOOOOOOOOOOOOOOOOOOOOOO DEFINITIVOOOOOOOO*/}
@@ -257,11 +261,15 @@ export default function TourActivity() {
           placeholder="ingrese una actividad"
           name="name"
         />
-        <br />{error.name && (
-              <i style={{ display: "inline", color: "red" }}>{error.name}</i>
-            )}
+        &nbsp;&nbsp;
+        {error.name && (
+          <i style={{ display: "inline", color: "red", fontSize: "13px" }}>
+            {error.name}
+          </i>
+        )}
+        <br />
         <label className="form-label">Dificultad:</label>
-        <select>
+        <select onChange={(e) => handleChange(e)} name="difficulty">
           <option disable hidden>
             Seleccione
           </option>
@@ -271,12 +279,29 @@ export default function TourActivity() {
           <option value="4">4</option>
           <option value="5">5</option>
         </select>
+        &nbsp;&nbsp;
+        {!input.difficulty && (
+          <i style={{ display: "inline", color: "red", fontSize: "13px" }}>
+            {error.difficulty}
+          </i>
+        )}
         <br />
         <label className="form-label">Duración:</label>
-        <input type="text" placeholder="Cantidad de horas" />
+        <input
+          name="duration"
+          type="text"
+          placeholder="Cantidad de horas"
+          onChange={(e) => handleChange(e)}
+        />
+        &nbsp;&nbsp;
+        {error.duration && (
+          <i style={{ display: "inline", color: "red", fontSize: "13px" }}>
+            {error.duration}
+          </i>
+        )}
         <br />
         <label className="form-label">Temporada:</label>
-        <select>
+        <select onChange={(e) => handleChange(e)} name="season">
           <option disable hidden>
             Seleccione
           </option>
@@ -285,12 +310,39 @@ export default function TourActivity() {
           <option value="winter">Invierno</option>
           <option value="spring">Primavera</option>
         </select>
+        &nbsp;&nbsp;
+        {!input.season && (
+          <i style={{ display: "inline", color: "red", fontSize: "13px" }}>
+            {error.season}
+          </i>
+        )}
         <br />
         <label className="form-label">Países</label>
+        <select onChange={(e) => handleSelect(e)}>
+          <option disable hidden></option>
+          {onlyCountries.map((oc) => (
+            <option key={oc.name} value={oc.name}>
+              {oc.name}
+            </option>
+          ))}
+        </select>
+        {input.country.map((el) => (
+            <div key={el}>
+              <h4>{el}</h4>
+              <button onClick={() => handleDelete(el)}>X</button>
+            </div>
+          ))}
         <br />
-
-        <button className="form-submit">CREAR</button>
+        <button className="form-submit" type="submit"
+              disabled={
+                error.name || error.duration || !input.difficulty || error.duration || !input.season ? true : false
+              }>CREAR</button>
       </form>
+      <div className="back">
+          <br />
+          <Link to="/home">⬅ Regresar</Link>
+        </div>
+        <br />
     </>
   );
 }
