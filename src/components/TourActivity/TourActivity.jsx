@@ -36,6 +36,7 @@ export default function TourActivity() {
     country: [],
   });
 
+
   useEffect(() => {
     dispatch(getOnlyCountries());
   }, []);
@@ -54,17 +55,19 @@ export default function TourActivity() {
   }
 
   function handleSelect(e) {
+    if(!input.country.includes(e.target.value)) {
     setInput({
       ...input,
-      country: [...input.country, e.target.value],
+      country: [...input.country, e.target.value]
     });
     setError(
       validate({
         ...input,
         [e.target.name]: e.target.value,
       })
-    );
-  }
+    )} else {
+      return null
+    }}
 
   function handleDelete(el) {
     setInput({
@@ -166,12 +169,7 @@ export default function TourActivity() {
             </option>
           ))}
         </select>
-        {input.country.map((el) => (
-          <div key={el}>
-            <label>{el}</label>
-            <button onClick={() => handleDelete(el)}>X</button>
-          </div>
-        ))}
+        
         <br />
         <button
           className="form-button"
@@ -190,6 +188,12 @@ export default function TourActivity() {
           CREAR
         </button>
       </form>
+      {input.country.map((el, i) => (
+          <div key={i}>
+            <label>{el}</label>
+            <button onClick={() => handleDelete(el)}>X</button>
+          </div>
+        ))}
       <br />
     </>
   );
