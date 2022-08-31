@@ -29,11 +29,11 @@ export default function Details() {
             
               <img className="detail-flag" src={countryDetail.flag} alt="Flag" />
               <h2>{countryDetail.name}</h2>
-              <p><label>Capital: </label><label>{countryDetail.capital}</label></p>
-              <p><label>Código: </label><label>{countryDetail.id}</label></p>
-              <p><label>Subregion: </label><label>{countryDetail.subregion}</label></p>
-              <p><label>Area: </label><label>{countryDetail.area + " km²"}</label></p>
-              <p><label>Población: </label><label>{countryDetail.population}</label></p>
+              <p><label className="detail-label-subtitle">Capital: </label><label>{countryDetail.capital}</label></p>
+              <p><label className="detail-label-subtitle">Código: </label><label>{countryDetail.id}</label></p>
+              <p><label className="detail-label-subtitle">Subregion: </label><label>{countryDetail.subregion}</label></p>
+              <p><label className="detail-label-subtitle">Area: </label><label>{countryDetail.area + " km²"}</label></p>
+              <p><label className="detail-label-subtitle">Población: </label><label>{parseInt(countryDetail.population)}</label></p>
           </div>
 
           <div className="detail-activities-container">
