@@ -3,7 +3,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #faf0e6;
+  background-color: #ddd3c9;
   box-shadow: rgb(38, 57, 77) 0px 10px 15px -5px;
   margin-bottom: 13px;
   
@@ -19,7 +19,7 @@
 }
 
 .search {
-  width: 35%;
+  width: 450px;
   display: flex;
   justify-content: space-around;
   margin-right: 30px;

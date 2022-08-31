@@ -31,7 +31,7 @@ export default function Details() {
           <div className="detail-container">
             
               <img className="detail-flag" src={countryDetail.flag} alt="Flag" />
-              <h2>{countryDetail.name}</h2>
+              <h2 className="dtl-h2">{countryDetail.name}</h2>
               <p><label className="detail-label-subtitle">Capital: </label><label>{countryDetail.capital}</label></p>
               <p><label className="detail-label-subtitle">Código: </label><label>{countryDetail.id}</label></p>
               <p><label className="detail-label-subtitle">Subregion: </label><label>{countryDetail.subregion}</label></p>
@@ -41,17 +41,19 @@ export default function Details() {
 
           <div className="detail-activities-container">
             <h2 className="dtl-h2"><i>Actividades: </i></h2>
-            <br />
-            {countryDetail.Activities?.length > 0 ? (
-              countryDetail.Activities.map((act) => (
-                <p key={act.id}>
-                  <li>Actividad: {act.name}</li>
-                  <li>Temporada: {act.season}</li>
-                  <li>Duración: {act.duration}</li>
-                  <li>Dificultad: {act.difficulty}</li>
-                </p>
-              ))) : ( <h2 className="dtl-h2">No hay actividades que mostrar por el momento!</h2> )}
+            <div className="test" >
+              {countryDetail.Activities?.length > 0 ? (
+                countryDetail.Activities.map((act) => (
+                  <p key={act.id}>
+                    <li>Actividad: </li><label>{act.name}</label><br />
+                    <li>Temporada: </li><label> {act.season}</label><br />
+                    <li>Duración: </li><label> {act.duration}</label><br />
+                    <li>Dificultad: </li><label> {act.difficulty}</label><br />
+                  </p>
+                ))) : ( <h2 className="dtl-h2">No hay actividades que mostrar por el momento!</h2> )}
+            </div>
           </div>
+
         </div>
       </div>
         ) : ( <p>Searching...</p> )}

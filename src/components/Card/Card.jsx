@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./Card.css";
 
-export default function Card({ nameCountry, continent, flag, id, population }) {
+export default function Card({ nameCountry, continent, flag, id }) {
   return (
     <>
       <div className="card">
@@ -10,13 +10,15 @@ export default function Card({ nameCountry, continent, flag, id, population }) {
             <img
               src={flag}
               alt="img not found"
-              width={"150px"}
-              height={"100px"}
+              width={"200px"}
+              height={"130px"}
             />
           </Link>
-          <h4>{nameCountry}</h4>
-          <h5>{continent}</h5>
-          <h5>{population}</h5>
+          <div>
+              <li className="card-li">Nombre: </li><label className="label-li">{nameCountry}</label><br />
+              <li className="card-li">Continente: </li><label className="label-li"> {continent}</label><br />
+              <li className="card-li">ID: </li><label className="label-li"> {id}</label><br />
+          </div>
       </div>
     </>
   );
