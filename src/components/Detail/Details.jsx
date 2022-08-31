@@ -19,6 +19,9 @@ export default function Details() {
 
   return (
       <>
+      <div className="detail-a">
+          <Link to={"/home"}>⬅ Regresar</Link>
+        </div>
         {countryDetail.hasOwnProperty("name") ? (
 
         <div className="detail">
@@ -37,7 +40,7 @@ export default function Details() {
           </div>
 
           <div className="detail-activities-container">
-            <h2><i>Actividades: </i></h2>
+            <h2 className="dtl-h2"><i>Actividades: </i></h2>
             <br />
             {countryDetail.Activities?.length > 0 ? (
               countryDetail.Activities.map((act) => (
@@ -47,15 +50,11 @@ export default function Details() {
                   <li>Duración: {act.duration}</li>
                   <li>Dificultad: {act.difficulty}</li>
                 </p>
-              ))) : ( <h2>No hay actividades que mostrar por el momento!</h2> )}
+              ))) : ( <h2 className="dtl-h2">No hay actividades que mostrar por el momento!</h2> )}
           </div>
         </div>
       </div>
         ) : ( <p>Searching...</p> )}
-
-        <div className="detail-a">
-          <Link to={"/home"}>⬅ Regresar</Link>
-        </div>
     </>
   );
 }
