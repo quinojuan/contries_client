@@ -65,3 +65,21 @@
         text-decoration:none;
         text-shadow:0px -1px 0px #2b665e;
 }
+
+.selected-countries {
+    display: flex;
+    width: 60%;
+    height: 60px;
+    margin: 0 auto;
+    background-color: wheat;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 9px;
+    font-size: 10px;
+    font-weight: bold;
+}
+
+.country {
+    margin: 0 5px;
+    border: 1px solid black;
+}

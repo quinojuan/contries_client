@@ -55,7 +55,7 @@ export default function TourActivity() {
   }
 
   function handleSelect(e) {
-    if(!input.country.includes(e.target.value)) {
+    if(!input.country.includes(e.target.value)) { // agregué esta línea para evitar seleccionar dos o más veces el mismo país...
     setInput({
       ...input,
       country: [...input.country, e.target.value]
@@ -188,12 +188,15 @@ export default function TourActivity() {
           CREAR
         </button>
       </form>
+      <div className="selected-countries">
       {input.country.map((el, i) => (
-          <div key={i}>
+          <div className="country" key={i}>
             <label>{el}</label>
             <button onClick={() => handleDelete(el)}>X</button>
           </div>
         ))}
+      </div>
+      
       <br />
     </>
   );
