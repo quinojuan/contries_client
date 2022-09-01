@@ -11,8 +11,8 @@ import {
 } from "../actions";
 
 const initialState = {
-  country: [],
-  allcountries: [],
+  country: [],        // Este es el que renderizo
+  allcountries: [],   // Este es el que trabajo
   details: {},
   onlyCountries: [],
   tourActivity: [],
