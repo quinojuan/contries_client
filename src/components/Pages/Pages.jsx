@@ -13,7 +13,7 @@ export default function Pages({ countryByPage, allCountries, showPages, currentP
         {pageNumbers &&
           pageNumbers.map((number) => (
             <li key={number}>
-              <button className={currentPage === number ? "active" : ""} onClick={() => showPages(number)}>{number}</button>
+              <button className={currentPage === number ? "active2" : ""} onClick={() => showPages(number)}>{number}</button>
             </li>
           ))}
       </ul>

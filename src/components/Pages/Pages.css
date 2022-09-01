@@ -12,11 +12,12 @@ nav ul li button {
     margin: 0 1px;
 }
 
-.active {
+.active2 {
     background-color: rgba(87, 57, 8, 0.576);
     color: aliceblue;
 }
 
 nav ul li button:hover{
-    background-color: rgba(87, 57, 8, 0.576);
+    background-color: rgba(232, 212, 181, 0.576);
+    color: black;
 }
