@@ -1,7 +1,7 @@
 import React from "react";
 import "./Pages.css";
 
-export default function Pages({ countryByPage, allCountries, showPages }) {
+export default function Pages({ countryByPage, allCountries, showPages, currentPage }) {
   const pageNumbers = [];
 
   for (let i = 1; i < Math.ceil( allCountries / countryByPage ); i++) {
@@ -13,7 +13,7 @@ export default function Pages({ countryByPage, allCountries, showPages }) {
         {pageNumbers &&
           pageNumbers.map((number) => (
             <li key={number}>
-              <button onClick={() => showPages(number)}>{number}</button>
+              <button className={currentPage === number ? "active" : ""} onClick={() => showPages(number)}>{number}</button>
             </li>
           ))}
       </ul>

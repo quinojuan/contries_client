@@ -11,11 +11,9 @@ export default function Details() {
   const dispatch = useDispatch();
   const countryDetail = useSelector((state) => state.details);
 
-  console.log(countryDetail);
-
   useEffect(() => {
     dispatch(getDetails(id));
-  }, [dispatch]); ////////////////////////////// Si las dejo vacías chilla y si las pongo chilla... no sé //////////////////////////////////
+  }, [dispatch]); // Preguntar por qué genera el warning
 
   return (
       <>

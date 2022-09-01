@@ -1,5 +1,22 @@
+
+
 nav ul {
     display: flex;
     list-style-type: none;
     justify-content: center;
+}
+
+nav ul li button {
+    font-size: larger;
+    background-color: rgb(233, 167, 82);
+    margin: 0 1px;
+}
+
+.active {
+    background-color: rgba(87, 57, 8, 0.576);
+    color: aliceblue;
+}
+
+nav ul li button:hover{
+    background-color: rgba(87, 57, 8, 0.576);
 }

@@ -23,11 +23,11 @@ export default function Home() {
   const tourActivity = useSelector((state) => state.tourActivity);
 
   const [currentPage, setCurrentPage] = useState(1);
-  const [countryByPage, setCountryByPage] = useState(10);
+  const [countryByPage, setCountryByPage] = useState(10); //cantidad de paises por pagina
   const [, setInOrder] = useState("");
 
-  const indexOfLastCountry = currentPage * countryByPage;
-  const indexOfFirstCountry = indexOfLastCountry - countryByPage;
+  const indexOfLastCountry = currentPage * countryByPage; // 10 / 20 / 30
+  const indexOfFirstCountry = indexOfLastCountry - countryByPage; // 0
   const currentCountry = allcountries.slice(
     indexOfFirstCountry,
     indexOfLastCountry
@@ -130,17 +130,9 @@ export default function Home() {
         </select>
       </div>
 
-      {/* <div>
-        <button>ANTERIORES</button>
-        <button onClick={() => proxPagina}>SIGUIENTES</button>
-
-        {array.map((c) => {
-          return <Card key={c.id} nameCountry={c.name} flag={c.flag} />;
-        })}
-      </div> */}
-
       <div>
         <Pages
+          currentPage={currentPage}
           countryByPage={countryByPage}
           allCountries={allcountries.length}
           showPages={showPages}

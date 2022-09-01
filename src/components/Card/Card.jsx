@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./Card.css";
 
+// Linea 10 - rodeo la imagen con un link para redireccionar a quien quiera ver el detail. El id de la ruta se construye a partir del ID del paí
 export default function Card({ nameCountry, continent, flag, id }) {
   return (
     <>
