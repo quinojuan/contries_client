@@ -11,6 +11,8 @@
   box-sizing: border-box;
 }
 
+
+
 .card:hover {
   transform: translateY(-4px);
   border: 1px solid rgb(71, 58, 11);

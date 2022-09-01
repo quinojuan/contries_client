@@ -52,7 +52,7 @@ export default function Home() {
     e.preventDefault();
     setCurrentPage(1);
     dispatch(filterCountryByContinent(e.target.value));
-    setInOrder(`Ordenado ${e.target.value}`);
+    setInOrder(`Ordenado ${e.target.value}`);           // este setInOrder tiene sólamente la finalidad de que se renderice nuevamente el componente.
   }
 
   function showPages(pageNumber) {

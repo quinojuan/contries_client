@@ -162,7 +162,7 @@ export default function TourActivity() {
         <br />
         <label className="form-label">Países</label>
         <select onChange={(e) => handleSelect(e)}>
-          <option disable hidden></option>
+          <option disable hidden>Relacione un país con la actividad</option>
           {onlyCountries.map((oc) => (
             <option key={oc.name} value={oc.name}>
               {oc.name}

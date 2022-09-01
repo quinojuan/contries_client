@@ -10,8 +10,8 @@ export default function Card({ nameCountry, continent, flag, id }) {
             <img
               src={flag}
               alt="img not found"
-              width={"200px"}
-              height={"130px"}
+              width={"90%"}
+              height={"40%"}
             />
           </Link>
           <div>
