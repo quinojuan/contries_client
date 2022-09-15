@@ -10,12 +10,9 @@ import {
 } from "../../redux/actions";
 
 import Card from "../Card/Card";
-// import Pages from "../Pages.jsx"
 import SearchBar from "../SearchBar/SearchBar";
-import { NavLink } from "react-router-dom";
 import Pages from "../Pages/Pages";
 import "./Home.css";
-import Form from "../FormTest/FormTest";
 
 export default function Home() {
   const dispatch = useDispatch();

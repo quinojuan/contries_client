@@ -17,7 +17,7 @@ export default function SearchBar() {
 
   useEffect(() => dispatch(getCountryName(name)), [name]); // Con esto estoy haciendo que se vayan mostrando los resultados de la búsqueda a medida que se va escribiendo el nombre del país.
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e) => { // lo dejé de utilizar cuando hice la barra de búsqueda del tipo "liveSearch" (ver useEffect de la linea 18)
     e.preventDefault();
     if (!name) {
       alert("Debe escribir el nombre de algún país");
