@@ -13,7 +13,7 @@ export const COUNTRY_BY_ACTIVITY = "COUNTRY_BY_ACTIVITY";
 export function getAllCountries() {
   return async function (dispatch) {
     try {
-      var jsonData = await axios.get(`https://countriesapi-production.up.railway.app/countries`); // despues probar hacerle un .then para no tener que hacer abajo jsonData.data
+      var jsonData = await axios.get(`${process.env.REACT_APP_URL_LOCAL}/countries`); // despues probar hacerle un .then para no tener que hacer abajo jsonData.data
       return dispatch({
         type: GET_ALL_COUNTRIES,
         payload: jsonData.data,
@@ -28,7 +28,7 @@ export function getCountryName(name) {
   return async function (dispatch) {
     try {
       const jsonName = await axios.get(
-        `https://countriesapi-production.up.railway.app/countries?name=${name}`
+        `${process.env.REACT_APP_URL_LOCAL}/countries?name=${name}`
       );
       return dispatch({
         type: GET_COUNTRY_NAME,
@@ -45,7 +45,7 @@ export function getDetails(id) {
   return async function (dispatch) {
     try {
       const jsonDetail = await axios.get(
-        `https://countriesapi-production.up.railway.app/countries/${id}`
+        `${process.env.REACT_APP_URL_LOCAL}/countries/${id}`
       );
       return dispatch({
         type: GET_DETAILS,
@@ -61,7 +61,7 @@ export function getOnlyCountries() {
   return async function (dispatch) {
     try {
       const jsonOnlyCountries = await axios.get(
-        `https://countriesapi-production.up.railway.app/allcountries`
+        `${process.env.REACT_APP_URL_LOCAL}/allcountries`
       );
       return dispatch({
         type: GET_ONLY_COUNTRIES,
@@ -73,12 +73,11 @@ export function getOnlyCountries() {
   };
 }
 
-
 export function getTourActivity() {
   return async function (dispatch) {
     try {
       const jsonTourActivity = await axios.get(
-        `https://countriesapi-production.up.railway.app/touractivity`
+        `${process.env.REACT_APP_URL_LOCAL}/touractivity`
       );
       return dispatch({
         type: GET_TOUR_ACTIVITY,
@@ -122,7 +121,7 @@ export function postTourActivity(payload) {
   return async function (dispatch) {
     try {
       var tourAct = await axios.post(
-        "https://countriesapi-production.up.railway.app/touractivity",
+        `${process.env.REACT_APP_URL_LOCAL}/touractivity`,
         payload
       );
       return dispatch({
