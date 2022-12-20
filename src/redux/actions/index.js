@@ -28,7 +28,7 @@ export function getCountryName(name) {
   return async function (dispatch) {
     try {
       const jsonName = await axios.get(
-        `${process.env.REACT_APP_URL_LOCAL}/countries?name=${name}`
+        process.env.API_URL || process.env.REACT_APP_URL_LOCAL + `/countries?name=${name}`
       );
       return dispatch({
         type: GET_COUNTRY_NAME,
@@ -45,7 +45,7 @@ export function getDetails(id) {
   return async function (dispatch) {
     try {
       const jsonDetail = await axios.get(
-        `${process.env.REACT_APP_URL_LOCAL}/countries/${id}`
+        process.env.API_URL || process.env.REACT_APP_URL_LOCAL + `/countries/${id}`
       );
       return dispatch({
         type: GET_DETAILS,
@@ -61,7 +61,7 @@ export function getOnlyCountries() {
   return async function (dispatch) {
     try {
       const jsonOnlyCountries = await axios.get(
-        `${process.env.REACT_APP_URL_LOCAL}/allcountries`
+        process.env.API_URL || process.env.REACT_APP_URL_LOCAL + `/allcountries`
       );
       return dispatch({
         type: GET_ONLY_COUNTRIES,
@@ -77,7 +77,7 @@ export function getTourActivity() {
   return async function (dispatch) {
     try {
       const jsonTourActivity = await axios.get(
-        `${process.env.REACT_APP_URL_LOCAL}/touractivity`
+        process.env.API_URL || process.env.REACT_APP_URL_LOCAL + `/touractivity`
       );
       return dispatch({
         type: GET_TOUR_ACTIVITY,
@@ -121,7 +121,7 @@ export function postTourActivity(payload) {
   return async function (dispatch) {
     try {
       var tourAct = await axios.post(
-        `${process.env.REACT_APP_URL_LOCAL}/touractivity`,
+        process.env.API_URL || process.env.REACT_APP_URL_LOCAL + `/touractivity`,
         payload
       );
       return dispatch({
