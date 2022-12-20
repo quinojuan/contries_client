@@ -13,7 +13,7 @@ export const COUNTRY_BY_ACTIVITY = "COUNTRY_BY_ACTIVITY";
 export function getAllCountries() {
   return async function (dispatch) {
     try {
-      var jsonData = await axios.get(process.env.API_URL || process.env.REACT_APP_URL_LOCAL + "/countries"); // despues probar hacerle un .then para no tener que hacer abajo jsonData.data
+      var jsonData = await axios.get("https://countries-api-quino.onrender.com/countries"); // despues probar hacerle un .then para no tener que hacer abajo jsonData.data
       return dispatch({
         type: GET_ALL_COUNTRIES,
         payload: jsonData.data,
