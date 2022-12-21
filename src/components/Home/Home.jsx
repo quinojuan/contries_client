@@ -81,7 +81,7 @@ export default function Home() {
 
     <div>
       <SearchBar />
-      {/* <div className="filter-wrap">
+      <div className="filter-wrap">
         <h2 className="filter-title">FILTRADOS:</h2>
 
         <select className="filter" onChange={(e) => handleFilterContinent(e)}>
@@ -150,8 +150,8 @@ export default function Home() {
             />
           );
         })}
-      </div> */}
-      { allcountries ? (<h1>Completo</h1>) : (<h1>Cargando</h1>)}
+      </div>
+      {/* { allcountries ? (<h1>Completo</h1>) : (<h1>Cargando</h1>)} */}
     </div>
   );
 }
