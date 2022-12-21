@@ -23,6 +23,7 @@ export default function Home() {
   const [countryByPage, setCountryByPage] = useState(10); //cantidad de paises por pagina
   const [, setInOrder] = useState("");
 
+
   const indexOfLastCountry = currentPage * countryByPage; // 10 / 20 / 30
   const indexOfFirstCountry = indexOfLastCountry - countryByPage; // 0
   const currentCountry = allcountries.slice(
@@ -77,9 +78,10 @@ export default function Home() {
     setInOrder(`Ordenado ${e.target.value}`);
   }
   return (
+
     <div>
       <SearchBar />
-      <div className="filter-wrap">
+      {/* <div className="filter-wrap">
         <h2 className="filter-title">FILTRADOS:</h2>
 
         <select className="filter" onChange={(e) => handleFilterContinent(e)}>
@@ -148,7 +150,8 @@ export default function Home() {
             />
           );
         })}
-      </div>
+      </div> */}
+      { allcountries ? (<h1>Completo</h1>) : (<h1>Cargando</h1>)}
     </div>
   );
 }
