@@ -28,7 +28,7 @@ export function getCountryName(name) {
   return async function (dispatch) {
     try {
       const jsonName = await axios.get(
-        process.env.API_URL || process.env.REACT_APP_URL_LOCAL + `/countries?name=${name}`
+        `https://countries-api-quino.onrender.com/countries?name=${name}`
       );
       return dispatch({
         type: GET_COUNTRY_NAME,
