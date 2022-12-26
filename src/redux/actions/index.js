@@ -28,8 +28,8 @@ export function getCountryName(name) {
   return async function (dispatch) {
     try {
       const jsonName = await axios.get(
-        // `https://countries-api-quino.onrender.com/countries?name=${name}`
-        `http://localhost:4000/countries?name=${name}`
+        `https://countries-api-quino.onrender.com/countries?name=${name}`
+        // `http://localhost:4000/countries?name=${name}`
       );
       return dispatch({
         type: GET_COUNTRY_NAME,
