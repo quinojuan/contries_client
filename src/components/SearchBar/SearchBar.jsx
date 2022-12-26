@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { getCountryName } from "../../redux/actions";
 import "./SearchBar.css";
 import logo from "../../assets/logo.png";
 import SearchIcon from "@mui/icons-material/Search";
-import CloseIcon from "@mui/icons-material/Close";
 
 export default function SearchBar() {
   const [wordEntered, setWordEntered] = useState("");
