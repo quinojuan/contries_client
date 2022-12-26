@@ -30,3 +30,9 @@
 .label-li {
   display: inline;
 }
+
+@media only screen and (max-width: 576px) {
+  .card {
+    width: 65%;
+  }
+}
