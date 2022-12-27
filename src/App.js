@@ -12,7 +12,7 @@ function App() {
         <Route exact path={"/"}>
           <LandingPage />
         </Route>
-        <Route exact path={"/home"}>
+        <Route path={"/home"}>
           <Home />
         </Route>
         <Route path={"/Country/:id"}>
