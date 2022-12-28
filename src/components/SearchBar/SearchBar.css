@@ -95,6 +95,7 @@
 .search-bar {
   margin: auto;
   justify-content: center;
+  padding-bottom: 10px;
 }
 
   .searchButton {
