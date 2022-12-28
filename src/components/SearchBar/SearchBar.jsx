@@ -37,20 +37,19 @@ export default function SearchBar() {
               value={"Crear actividad"}
             />
           </NavLink>
-        </div>
-
-        <div style={{display: "flex"}} className="search">
-          <div className="searchInputs">
-            <input
-              type="text"
-              placeholder="Ingrese un país"
-              value={wordEntered}
-              onChange={handleFilter}
-            />
-          </div>
-            <div className="searchIcon">
-              {<SearchIcon />}
+          <div className="search-bar">
+            <div className="searchInputs">
+              <input
+                type="text"
+                placeholder="Ingrese un país"
+                value={wordEntered}
+                onChange={handleFilter}
+              />
             </div>
+            <div className="searchIcon">
+              {<SearchIcon style={{ width: "35px", height: "35px" }} />}
+            </div>
+          </div>
         </div>
       </div>
     </>
