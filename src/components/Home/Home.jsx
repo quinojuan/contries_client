@@ -13,9 +13,11 @@ import Card from "../Card/Card";
 import SearchBar from "../SearchBar/SearchBar";
 import Pages from "../Pages/Pages";
 import "./Home.css";
+import { useHistory } from "react-router-dom";
 
 export default function Home() {
   const dispatch = useDispatch();
+  const history = useHistory();
   const allcountries = useSelector((state) => state.country);
   const tourActivity = useSelector((state) => state.tourActivity);
 
@@ -42,7 +44,7 @@ export default function Home() {
   function handleCleanFilter(e) {
     e.preventDefault();
     dispatch(getAllCountries());
-    window.location.reload();
+    history.push("/home");
   }
 
   function handleFilterContinent(e) {
