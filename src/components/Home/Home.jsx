@@ -78,7 +78,7 @@ export default function Home() {
     setCurrentPage(1);
     setInOrder(`Ordenado ${e.target.value}`);
   }
-  return (
+  return ( // TENGO UN GRAVE ERROR EN LA FORMA QUE PRESENTO LA INFO..... TENGO DOS TERNARIOS ANIDADOS....
     <>
       <SearchBar />
       {!currentCountry.length ? (
