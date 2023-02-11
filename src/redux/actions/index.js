@@ -10,10 +10,12 @@ export const FILTER_BY_CONTINENT = "FILTER_BY_CONTINENT";
 export const ORDER_BY_POPULATION = "ORDER_BY_POPULATION";
 export const COUNTRY_BY_ACTIVITY = "COUNTRY_BY_ACTIVITY";
 
+const {DEPLOY_URL, LOCAL_URL} = process.env
+
 export function getAllCountries() {
   return async function (dispatch) {
     try {
-      var jsonData = await axios.get("https://countries-api-quino.onrender.com/countries"); // despues probar hacerle un .then para no tener que hacer abajo jsonData.data
+      var jsonData = await axios.get(`${LOCAL_URL.process.env}/countries` || `${DEPLOY_URL.process.env}/countries`); // despues probar hacerle un .then para no tener que hacer abajo jsonData.data
       return dispatch({
         type: GET_ALL_COUNTRIES,
         payload: jsonData.data,
