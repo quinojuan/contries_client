@@ -10,12 +10,10 @@ export const FILTER_BY_CONTINENT = "FILTER_BY_CONTINENT";
 export const ORDER_BY_POPULATION = "ORDER_BY_POPULATION";
 export const COUNTRY_BY_ACTIVITY = "COUNTRY_BY_ACTIVITY";
 
-const {DEPLOY_URL, LOCAL_URL} = process.env
-
 export function getAllCountries() {
   return async function (dispatch) {
     try {
-      var jsonData = await axios.get(`${LOCAL_URL.process.env}/countries` || `${DEPLOY_URL.process.env}/countries`); // despues probar hacerle un .then para no tener que hacer abajo jsonData.data
+      var jsonData = await axios.get(`https://countries-api-quino.onrender.com/countries`); // despues probar hacerle un .then para no tener que hacer abajo jsonData.data
       return dispatch({
         type: GET_ALL_COUNTRIES,
         payload: jsonData.data,
@@ -31,7 +29,6 @@ export function getCountryName(name) {
     try {
       const jsonName = await axios.get(
         `https://countries-api-quino.onrender.com/countries?name=${name}`
-        // `http://localhost:4000/countries?name=${name}`
       );
       return dispatch({
         type: GET_COUNTRY_NAME,
@@ -48,7 +45,7 @@ export function getDetails(id) {
   return async function (dispatch) {
     try {
       const jsonDetail = await axios.get(
-        process.env.API_URL || process.env.REACT_APP_URL_LOCAL + `/countries/${id}`
+        `https://countries-api-quino.onrender.com/countries/${id}`
       );
       return dispatch({
         type: GET_DETAILS,
@@ -64,7 +61,7 @@ export function getOnlyCountries() {
   return async function (dispatch) {
     try {
       const jsonOnlyCountries = await axios.get(
-        process.env.API_URL || process.env.REACT_APP_URL_LOCAL + `/allcountries`
+        `https://countries-api-quino.onrender.com/allcountries`
       );
       return dispatch({
         type: GET_ONLY_COUNTRIES,
@@ -80,7 +77,7 @@ export function getTourActivity() {
   return async function (dispatch) {
     try {
       const jsonTourActivity = await axios.get(
-        process.env.API_URL || process.env.REACT_APP_URL_LOCAL + `/touractivity`
+        `https://countries-api-quino.onrender.com/touractivity`
       );
       return dispatch({
         type: GET_TOUR_ACTIVITY,
@@ -124,7 +121,7 @@ export function postTourActivity(payload) {
   return async function (dispatch) {
     try {
       var tourAct = await axios.post(
-        process.env.API_URL || process.env.REACT_APP_URL_LOCAL + `/touractivity`,
+        `https://countries-api-quino.onrender.com/touractivity`,
         payload
       );
       return dispatch({
